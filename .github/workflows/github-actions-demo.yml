@@ -3,7 +3,8 @@ on: [push]
 jobs:
   Explore-GitHub-Actions:
     env:
-      DAY_OF_WEEK: Mon  
+      DAY_OF_WEEK: Mon
+      SOME_SECRET: ${{ secrets.SOME_SECRET }}
     runs-on: ubuntu-latest
     steps:
       - run: echo "🎉 The job was automatically triggered by a ${{ github.event_name }} event."
@@ -16,5 +17,5 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-      - run: echo "🎉 ENV Vars $SOME_SECRET - $STG_ENV_VAR - $GITHUB_JOB - $DAY_OF_WEEK - $GITHUB_ACTION"
+      - run: echo "🎉 ENV Vars $SOME_SECRET"
       - run: echo "🍏 This job's status is ${{ job.status }}."
